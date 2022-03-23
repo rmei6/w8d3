@@ -157,6 +157,21 @@ Board.prototype.validMoves = function (color) {
   return positions;
 };
 
+Board._prototype.aiMoves = function (color) {
+  let moves = this.validMoves(color);
+  let data = [];
+  let directions = [[0, 1], [1, 0], [1, 1], [0, -1],
+  [1, -1], [-1, 1], [-1, -1], [-1, 0]];
+  for (let j = 0; j < moves.length; j++) {
+    let positions = [];
+    for (let i = 0; i < directions.length; i++) {
+      positions = positions.concat(this._positionsToFlip(moves[j], color, directions[i]));
+    }
+    data.push(moves[j],positions.length());
+  }
+  return data;
+};
+
 /**
  * Checks if there are any valid moves for the given color.
  */

@@ -3,6 +3,7 @@ if (typeof window === 'undefined'){
   var readline = require("readline");
   var Piece = require("./piece.js");
   var Board = require("./board.js");
+  var AIPlayer = require("./aiplayer.js");
 }
 // DON'T TOUCH THIS CODE
 
@@ -12,6 +13,7 @@ if (typeof window === 'undefined'){
 function Game () {
   this.board = new Board();
   this.turn = "black";
+  this.computer = new AIPlayer(this.board,"black");
 }
 
 /**
