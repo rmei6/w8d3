@@ -1,0 +1,8 @@
+/* PHASE 3: Forms */
+.submit {
+    background-color: blue;
+}
+
+.form-section thumb{
+    display: flex;
+}
